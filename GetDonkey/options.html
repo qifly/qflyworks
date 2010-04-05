@@ -1,0 +1,54 @@
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<title>GetDonkey 设置</title>
+	<style type="text/css"><!--
+			body {
+				font-size: 11pt;
+				font-family: 宋体,Sans,serif;
+				background-color: #A0E0A0;
+				width:780px;	
+			}
+			div.statu {
+				background-color: gray;
+				color: white;			
+			}
+	--></style>
+</head>
+<body>
+	<script type="text/javascript">
+	function save_options(){
+		var _mldaddr=	document.getElementById("mld_addr").value;	
+		if (_mldaddr!="")		
+				{
+					localStorage["mld_addr"]=_mldaddr;
+					document.getElementById("op_msg").innerText="保存成功！";
+				}
+			else
+				document.getElementById("op_msg").innerText="地址不能为空。";
+	}
+	function restore_default(){
+		document.getElementById("mld_addr").value="http://localhost:4080";
+	}
+	</script>
+	<div id="op_msg" class="statu">欢迎使用GetDonkey.</div>
+	<br />
+	<br />		
+	<div>请设置mldonkey的管理地址：</div>
+	<div>
+		<input style="width:500px" type="text" id="mld_addr" value="http://localhost:4080" />
+		<br />
+		<button onclick="save_options();">保存设置</button>	
+		<button onclick="restore_default();">恢复默认</button>
+		<br />
+		<br />
+		<div>重要提示：<br />
+			<ol>
+				<li>请不要在最后添加“/”，例如http://localhost:4080请<font color="red">不</font>要写成http://localhost:4080/	。</li>
+				<li>在使用远程地址的时候,请确你的IP地址在mldonkey的设置中被允许。	</li>
+			</ol>	
+		</div>
+
+	</div>
+</body>
+</html>
